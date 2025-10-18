@@ -49,47 +49,57 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
+  const fullPageRoutes = [
+    "/color-picker-custom-field",
+    "/page-context-example",
+  ];
+  const isFullPageRoute = fullPageRoutes.includes(pathname);
+
   return (
     <html lang="en">
       <body>
         <MarketplaceClientProvider>
           <ChakraProvider theme={sitecoreTheme} toastOptions={toastOptions}>
-            <Flex minH="100vh" w="100vw">
-              <Box
-                bg="chakra-body-bg"
-                p={4}
-                shadow="base"
-                minW="220px"
-                maxW="240px"
-                h="100vh"
-                position="sticky"
-                top={0}
-              >
-                <Stack spacing={2}>
-                  {navItems.map((item) => (
-                    <Button
-                      as="a"
-                      href={item.to}
-                      key={item.to}
-                      isActive={pathname === item.to}
-                      leftIcon={
-                        <Icon>
-                          <path d={item.icon} />
-                        </Icon>
-                      }
-                      variant="ghost"
-                      justifyContent="flex-start"
-                      w="full"
-                    >
-                      <Text isTruncated>{item.label}</Text>
-                    </Button>
-                  ))}
-                </Stack>
-              </Box>
-              <Box flex={1} p={8}>
-                {children}
-              </Box>
-            </Flex>
+            {isFullPageRoute ? (
+              <>{children}</>
+            ) : (
+              <Flex minH="100vh" w="100vw">
+                <Box
+                  bg="chakra-body-bg"
+                  p={4}
+                  shadow="base"
+                  minW="220px"
+                  maxW="240px"
+                  h="100vh"
+                  position="sticky"
+                  top={0}
+                >
+                  <Stack spacing={2}>
+                    {navItems.map((item) => (
+                      <Button
+                        as="a"
+                        href={item.to}
+                        key={item.to}
+                        isActive={pathname === item.to}
+                        leftIcon={
+                          <Icon>
+                            <path d={item.icon} />
+                          </Icon>
+                        }
+                        variant="ghost"
+                        justifyContent="flex-start"
+                        w="full"
+                      >
+                        <Text isTruncated>{item.label}</Text>
+                      </Button>
+                    ))}
+                  </Stack>
+                </Box>
+                <Box flex={1} p={8}>
+                  {children}
+                </Box>
+              </Flex>
+            )}
           </ChakraProvider>
         </MarketplaceClientProvider>
       </body>

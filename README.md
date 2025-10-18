@@ -6,6 +6,7 @@ A starter template for building standalone Sitecore Marketplace apps using **Nex
 
 > **Disclaimer:** This project is community-created and provided as a reference only. It is not officially supported by Sitecore, and is not intended for production use. The code and examples are for educational purposes and to give hints for possible usage patterns. Use at your own risk.
 
+
 ## Features
 - **Sitecore Marketplace SDK integration:** Client and XM Cloud APIs for data access.
 - **Modern UI:** Built with Chakra UI and Sitecore Blok design system.
@@ -17,6 +18,9 @@ A starter template for building standalone Sitecore Marketplace apps using **Nex
 - **Next.js App Router navigation:** Multi-page structure with sidebar navigation using Next.js routing.
 - **Custom context provider patterns:** useMemo and strong typing for robust state management.
 - **Mutation Wizard Demo:** Step-by-step modal wizard demonstrating Sitecore authoring mutations: createTemplate, createItem, and deleteItem. Each step shows how to perform these mutations, handle errors, and display results using the Sitecore Marketplace SDK. For further mutation examples, see the official [Sitecore documentation](https://doc.sitecore.com/xmc/en/developers/xm-cloud/query-examples-for-authoring-operations.html).
+- **Custom Field Color Picker:** Simple HEX color picker for custom fields, using `react-colorful`. [Docs](https://doc.sitecore.com/mp/en/developers/marketplace/extension-points.html#page-builder-custom-field) | [Custom Fields Guide](https://doc.sitecore.com/mp/en/developers/marketplace/page-builder-custom-fields.html)
+- **Page Context Panel/Example:** View and debug page context. [Docs](https://doc.sitecore.com/mp/en/developers/marketplace/extension-points.html#page-builder-context-panel)
+
 
 ## Dependencies
 - @sitecore-marketplace-sdk/client (Marketplace SDK client)
@@ -25,6 +29,7 @@ A starter template for building standalone Sitecore Marketplace apps using **Nex
 - @chakra-ui/react, @emotion/react, @emotion/styled, framer-motion (UI framework)
 - @chakra-ui/cli (Chakra UI CLI)
 - @mdi/js (Material Design Icons)
+- react-colorful (Color picker component)
 - next, react, react-dom (Next.js framework)
 
 For setup instructions, see the [Setup Guide](docs/1_setup.md).
